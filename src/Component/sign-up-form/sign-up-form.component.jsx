@@ -1,8 +1,8 @@
 import { useState } from "react";
-import FormInput from "../../Component/form-input/form-input.component";
+import FormInput from "../form-input/form-input.component";
 import { createAuthUserWithEmailAndPassword,createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 import './sign-up-form.style.scss';
-import Button from "../../Component/button/button.component";
+import Button from "../button/button.component";
 
 const defaultFormFields = {
     displayedName : '',
@@ -11,7 +11,7 @@ const defaultFormFields = {
     confirmPassword:'',
 }
 
-const SingUpForm = () =>{
+const SignUpForm = () =>{
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {displayedName , email, password, confirmPassword} = formFields;
@@ -79,4 +79,4 @@ const SingUpForm = () =>{
     )
 }
 
-export default SingUpForm;
+export default SignUpForm;
