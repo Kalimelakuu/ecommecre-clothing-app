@@ -3,7 +3,7 @@ import Category from '../category/category.componenet';
 import CategoriesPreview from '../categories-preview.component/categories-preview.component';
 import './shop.style.scss'
 import {  useEffect} from "react";
-import { fetchCategoriesAsync } from '../../store/categories/categories.action';
+import { fetchCategoriesStart } from '../../store/categories/categories.action';
 import {useDispatch} from 'react-redux'
 
 
@@ -14,7 +14,7 @@ const Shop = () => {
 
     useEffect(() => {
         const getCategoriesMap = async () => {
-            dispatch(fetchCategoriesAsync())
+            dispatch(fetchCategoriesStart())
         };
         getCategoriesMap();
     },[])

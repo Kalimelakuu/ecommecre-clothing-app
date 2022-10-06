@@ -11,8 +11,10 @@ import CardIcon from "../../Component/card-icon/card-icon.component";
 import CartDropDown from "../../Component/card-dropdown/card-dropdown.component";
 
 import { selectCurrentUser } from "../../store/user/user.selector";
-import {useSelector} from 'react-redux'
+import {useSelector , useDispatch} from 'react-redux'
 import { selectIsCartOpen } from '../../store/cart/cart.selector.js'
+
+import { signOutStart } from "../../store/user/user.action";
 
 
 const Navigation = () =>{
@@ -20,8 +22,9 @@ const Navigation = () =>{
 
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+  const dispatch = useDispatch()
 
-
+  const signOutUser = () => dispatch(signOutStart())
   console.log(currentUser === null);
   
     return (
