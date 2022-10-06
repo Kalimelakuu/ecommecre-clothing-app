@@ -64,23 +64,19 @@ export const getCategoriesAndDocuments = async () => {
     const q = query(collectionRef);
 
     const querySnapShot = await getDocs(q);
-    const categoryMap = querySnapShot.docs.reduce((acc, docSnapShot) => {
-        const{title, items} = docSnapShot.data();
-        acc[title.toLowerCase()]= items;
-        return acc;
-    }, {});
+    return  querySnapShot.docs.map((docSnapShot) => docSnapShot.data())
+    
 
-    return categoryMap;
 }
+
+/// Create user document for user sign in and sign up
 
 export const createUserDocumentFromAuth = async (userAuth, additionaInformation) =>{
     if(!userAuth) return;
 
     const userDocRef = doc( db, 'users', userAuth.uid);
     const userSnapshot = await getDoc(userDocRef);
-    // console.log(userDocRef);
-    // console.log(userSnapshot.exists());
-
+  
     if(!userSnapshot.exists()){
 
         const {displayName, email} = userAuth;
